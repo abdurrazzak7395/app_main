@@ -1,0 +1,12 @@
+ ⚠ Port 3000 is in use, trying 3001 instead.
+[Error: EPERM: operation not permitted, open 'C:\Users\User\Desktop\svp-token-panel\svp-token-panel\frontend\.next\trace'] {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'open',
+  path: 'C:\\Users\\User\\Desktop\\svp-token-panel\\svp-token-panel\\frontend\\.next\\trace'
+}
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.11.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.11.1
+npm notice To update run: npm install -g npm@11.11.1
+npm notice
