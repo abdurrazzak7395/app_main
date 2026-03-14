@@ -59,6 +59,7 @@ Important values:
 - `APP_ENCRYPTION_KEY=` 64 hex chars for AES-256-GCM
 - `SVP_API_BASE_URL=https://svp-international-api.pacc.sa/api/v1`
 - `SVP_LOCALE=en`
+- `RAILWAY_PRIVATE_DOMAIN=appmain.railway.internal` (optional Private DNS in Railway)
 
 Generate a key:
 
@@ -74,6 +75,22 @@ Create `frontend/.env.local` from `.env.example`.
 
 ## Deploy notes
 
+### Railway deployment setup
+
+1. Install Railway CLI: `npm install -g railway`
+2. From repo root run: `railway init` and connect to your Railway project.
+3. Create a Railway setup file (already added): `railway.json`.
+4. Ensure backend env in Railway contains:
+   - `PORT=4000`
+   - `FRONTEND_URL=http://localhost:3000`
+   - `SESSION_SECRET`
+   - `APP_ENCRYPTION_KEY` (64 hex chars)
+   - `SVP_API_BASE_URL=https://svp-international-api.pacc.sa/api/v1`
+   - `SVP_LOCALE=en`
+   - `RAILWAY_PRIVATE_DOMAIN=appmain.railway.internal` (optional)
+5. Set frontend env:
+   - `NEXT_PUBLIC_API_BASE_URL=https://your-backend-domain.railway.app`
+
 ### Backend
 
 Works well on Railway, Render, Fly.io, VPS, or any Node host.
@@ -87,9 +104,16 @@ This starter uses SQLite (`backend/data/app.db`). For real production:
 
 Deploy `frontend/` to Vercel.
 
-Set:
+#### Vercel setup
 
-- `NEXT_PUBLIC_API_BASE_URL=https://your-backend-domain.com`
+1. Install Vercel CLI (optional): `npm i -g vercel`
+2. From repo root run: `vercel login` then `vercel` and choose this project.
+3. When prompted, set project root to `frontend`.
+4. Set environment variables in Vercel:
+   - `NEXT_PUBLIC_API_BASE_URL=https://your-backend-domain.com`
+5. Deploy with `vercel --prod`.
+
+> If you use monorepo settings, configure Vercel to use `frontend` as the root directory and build command `npm run build`.
 
 ## Main backend endpoints
 

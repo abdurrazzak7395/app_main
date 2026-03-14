@@ -13,6 +13,7 @@ const envSchema = z.object({
   SVP_API_BASE_URL: z.string().url(),
   SVP_LOCALE: z.string().default('en'),
   TRUST_PROXY: z.coerce.number().default(0),
+  RAILWAY_PRIVATE_DOMAIN: z.string().optional(),
 });
 
 export const env = envSchema.parse(process.env);

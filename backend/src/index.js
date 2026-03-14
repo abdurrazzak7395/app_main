@@ -71,4 +71,7 @@ app.use((err, _req, res, _next) => {
 
 app.listen(env.PORT, () => {
   console.log(`Backend running on http://localhost:${env.PORT}`);
+  if (env.RAILWAY_PRIVATE_DOMAIN) {
+    console.log(`Railway private domain: ${env.RAILWAY_PRIVATE_DOMAIN}`);
+  }
 });
