@@ -60,6 +60,20 @@ Important values:
 - `SVP_API_BASE_URL=https://svp-international-api.pacc.sa/api/v1`
 - `SVP_LOCALE=en`
 - `RAILWAY_PRIVATE_DOMAIN=appmain.railway.internal` (optional Private DNS in Railway)
+- PostgreSQL env (Railway):
+  - `DATABASE_PUBLIC_URL=postgresql://${PGUSER}:${POSTGRES_PASSWORD}@${RAILWAY_TCP_PROXY_DOMAIN}:${RAILWAY_TCP_PROXY_PORT}/${PGDATABASE}`
+  - `DATABASE_URL=postgresql://${PGUSER}:${POSTGRES_PASSWORD}@${RAILWAY_PRIVATE_DOMAIN}:5432/${PGDATABASE}`
+  - `PGDATA=/var/lib/postgresql/data/pgdata`
+  - `PGDATABASE=railway`
+  - `PGHOST=${RAILWAY_PRIVATE_DOMAIN}`
+  - `PGPASSWORD=<postgres-password>`
+  - `PGPORT=5432`
+  - `PGUSER=postgres`
+  - `POSTGRES_DB=railway`
+  - `POSTGRES_PASSWORD=<postgres-password>`
+  - `POSTGRES_USER=postgres`
+  - `RAILWAY_DEPLOYMENT_DRAINING_SECONDS=60`
+  - `SSL_CERT_DAYS=820`
 
 Generate a key:
 
@@ -71,7 +85,9 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 
 Create `frontend/.env.local` from `.env.example`.
 
-- `NEXT_PUBLIC_API_BASE_URL=http://localhost:4000`
+- `NEXT_PUBLIC_API_BASE_URL=http://localhost:4000` (local)
+- `NEXT_PUBLIC_API_BASE_URL=https://appmain-production.up.railway.app` (Railway production)
+- `NEXT_PUBLIC_API_BASE_URL=https://pacc-booking.vercel.app` (Vercel frontend)
 
 ## Deploy notes
 
@@ -89,7 +105,7 @@ Create `frontend/.env.local` from `.env.example`.
    - `SVP_LOCALE=en`
    - `RAILWAY_PRIVATE_DOMAIN=appmain.railway.internal` (optional)
 5. Set frontend env:
-   - `NEXT_PUBLIC_API_BASE_URL=https://your-backend-domain.railway.app`
+   - `NEXT_PUBLIC_API_BASE_URL=https://appmain-production.up.railway.app`
 
 ### Backend
 
