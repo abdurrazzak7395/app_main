@@ -61,19 +61,24 @@ Important values:
 - `SVP_LOCALE=en`
 - `RAILWAY_PRIVATE_DOMAIN=appmain.railway.internal` (optional Private DNS in Railway)
 - PostgreSQL env (Railway):
-  - `DATABASE_PUBLIC_URL=postgresql://${PGUSER}:${POSTGRES_PASSWORD}@${RAILWAY_TCP_PROXY_DOMAIN}:${RAILWAY_TCP_PROXY_PORT}/${PGDATABASE}`
-  - `DATABASE_URL=postgresql://${PGUSER}:${POSTGRES_PASSWORD}@${RAILWAY_PRIVATE_DOMAIN}:5432/${PGDATABASE}`
+  - `DATABASE_PUBLIC_URL=postgresql://postgres:JxBIZgHLproVsElpxPrjftWOTevhfvCH@shuttle.proxy.rlwy.net:48062/railway`
+  - `DATABASE_URL=postgresql://postgres:JxBIZgHLproVsElpxPrjftWOTevhfvCH@shuttle.proxy.rlwy.net:48062/railway`
   - `PGDATA=/var/lib/postgresql/data/pgdata`
   - `PGDATABASE=railway`
-  - `PGHOST=${RAILWAY_PRIVATE_DOMAIN}`
-  - `PGPASSWORD=<postgres-password>`
-  - `PGPORT=5432`
+  - `PGHOST=shuttle.proxy.rlwy.net`
+  - `PGPASSWORD=JxBIZgHLproVsElpxPrjftWOTevhfvCH`
+  - `PGPORT=48062`
   - `PGUSER=postgres`
   - `POSTGRES_DB=railway`
-  - `POSTGRES_PASSWORD=<postgres-password>`
+  - `POSTGRES_PASSWORD=JxBIZgHLproVsElpxPrjftWOTevhfvCH`
   - `POSTGRES_USER=postgres`
   - `RAILWAY_DEPLOYMENT_DRAINING_SECONDS=60`
   - `SSL_CERT_DAYS=820`
+
+Direct psql connect:
+```bash
+PGPASSWORD=JxBIZgHLproVsElpxPrjftWOTevhfvCH psql -h shuttle.proxy.rlwy.net -U postgres -p 48062 -d railway
+```
 
 Generate a key:
 
