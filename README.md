@@ -75,6 +75,10 @@ Important values:
   - `RAILWAY_DEPLOYMENT_DRAINING_SECONDS=60`
   - `SSL_CERT_DAYS=820`
 
+Postgres credentials:
+- Username: `postgres`
+- Password: `JxBIZgHLproVsElpxPrjftWOTevhfvCH`
+
 Direct psql connect:
 ```bash
 PGPASSWORD=JxBIZgHLproVsElpxPrjftWOTevhfvCH psql -h shuttle.proxy.rlwy.net -U postgres -p 48062 -d railway
